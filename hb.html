@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запрошення на День Народження</title>
+
+    <link rel="icon" href="2.png" type="image/x-icon">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="invitation">
+        <h1>Запрошення на День Народження!</h1>
+        <p>Дорогий друг/подруга!</p>
+        <p>Запрошую тебе на святкування мого <span class="highlight">Дня Народження❤️‍🔥</span>!</p>
+        <p><strong>Коли:</strong> 21 грудня 2024 року о 18:00</p>
+        <p><strong>Де:</strong> кафе "Веселка", вул. Центральна, 15</p>
+        <p>Буду дуже рада тебе бачити!</p>
+        <p>З любов’ю, <span class="highlight">Анастасія🥰</span></p>
+
+        <div class="buttons">
+            <button id="acceptButton">Прийду</button>
+            <button id="declineButton">Не прийду</button>
+        </div>
+
+        <div id="responseMessage"></div>
+
+        <p class="note" id="telegramRequest"></p>
+    </div>
+
+    <script>
+        // Використання функції для прив'язки подій
+        document.addEventListener('DOMContentLoaded', function () {
+            // Знаходимо кнопки
+            const acceptButton = document.getElementById('acceptButton');
+            const declineButton = document.getElementById('declineButton');
+
+            // Додаємо обробники подій
+            acceptButton.addEventListener('touchstart', handleAcceptClick); // Для сенсорних екранів
+            acceptButton.addEventListener('click', handleAcceptClick);
+
+            declineButton.addEventListener('touchstart', handleDeclineClick); // Для сенсорних екранів
+            declineButton.addEventListener('click', handleDeclineClick);
+        });
+
+        // Обробники подій
+        function handleAcceptClick(event) {
+            event.preventDefault(); // Запобігаємо дублюванню кліку
+            showResponse('Дякую, чекаю зустрічі!');
+        }
+
+        function handleDeclineClick(event) {
+            event.preventDefault(); // Запобігаємо дублюванню кліку
+            showResponse('Ну нічого, наступного разу вийде)');
+        }
+
+        // Функція для показу відповіді
+        function showResponse(message) {
+            const responseElement = document.getElementById('responseMessage');
+            const telegramRequest = document.getElementById('telegramRequest');
+
+            // Виводимо повідомлення
+            responseElement.textContent = message;
+
+            // Додаємо прохання
+            telegramRequest.innerHTML = 'Будь ласка, скинь скрін відповіді у <a href="https://t.me/ng_anasteisha" target="_blank"><span>Telegram</span></a>. Дякую! 😊';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
